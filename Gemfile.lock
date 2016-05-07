@@ -61,6 +61,10 @@ GEM
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     droplet_kit (1.4.1)
       activesupport (> 3.0, < 5.1)
       faraday (~> 0.9.1)
@@ -203,6 +207,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  dotenv-rails
   droplet_kit
   httparty
   jbuilder (~> 2.0)

@@ -2,8 +2,10 @@ require 'httparty'
 
 class SheetsuService
   include HTTParty
-  
-  def initialize(base_uri:)
+
+  base_uri ENV['SHEETSU_URL']
+
+  def initialize(base_uri: nil)
     self.class.base_uri(base_uri)
   end
 
