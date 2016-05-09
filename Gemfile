@@ -12,6 +12,7 @@ gem 'puma'
 gem 'httparty'
 gem 'droplet_kit'
 gem 'dotenv-rails'
+gem 'clockwork', '~> 2.0'
 
 group :development, :test do
   gem 'byebug'
