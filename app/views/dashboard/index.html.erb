@@ -2,7 +2,7 @@
   <h1 class="mid-margin-bottom">Painel Digital Ocean</h1>
   <div class="row">
     <div class="col-lg-12">
-      <table class="table table-responsive">
+      <table id="droplets" class="table table-responsive">
         <thead>
           <tr>
             <th>ID Externo</th>
@@ -13,6 +13,7 @@
             <th>CPUs</th>
             <th>Imagem</th>
             <th>Estado</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,14 @@
             <td><%= droplet.vcpus %></td>
             <td><%= droplet.image_name %></td>
             <td class="<%= droplet.status %>"><%= droplet.status %></td>
+            <td>
+              <input class="update_url" type="hidden" value="<%= droplet_url(droplet) %>">
+              <% if droplet.on? %>
+                <button class="button_off btn btn-default">Desligar</button>
+              <% else %>
+                <button class="button_on btn btn-default">Ligar</button>
+              <% end %>
+            </td>
           </tr>
           <% end %>
         <tbody>

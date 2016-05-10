@@ -3,6 +3,10 @@ class DropletRepository
     Droplet.all.order(:name)
   end
 
+  def update_status(droplet_id:, status:)
+    Droplet.update(droplet_id, status: status)
+  end
+
   def find_or_create_droplet(data:)
     Droplet.create_with(
       name: data.name,
