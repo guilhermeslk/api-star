@@ -10,13 +10,13 @@ class DigitalOceanService
 
   def fetch_and_save_droplets
     client.droplets.all.each do |droplet|
-      droplet_repository.find_or_create_droplet(data: droplet)
+      droplet_repository.create_or_update_droplet(data: droplet)
     end
   end
 
   def change_status(droplet_id:, status:)
     droplet = Droplet.find(droplet_id)
-    if status == 'on'
+    if status == 'active'
       power_on(droplet: droplet)
     else
       shutdown(droplet: droplet)
@@ -25,12 +25,10 @@ class DigitalOceanService
 
   def power_on(droplet:)
     droplet_actions.power_on(droplet_id: droplet.external_id)
-    update_status(droplet.id, 'on')
   end
 
   def shutdown(droplet:)
-    droplet_actions.shutdown(droplet_id: droplet.external_id)
-    update_status(droplet.id, 'off')
+    shutdown = droplet_actions.shutdown(droplet_id: droplet.external_id)
   end
 
   def droplet_repository

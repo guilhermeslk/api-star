@@ -10,7 +10,7 @@ $('document').ready ->
         return
 
   power_on = (url) ->
-    update_status(url, 'on')
+    update_status(url, 'active')
     return
 
   shutdown = (url) ->

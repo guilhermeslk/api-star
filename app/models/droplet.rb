@@ -1,6 +1,6 @@
 class Droplet < ActiveRecord::Base
   def on?
-    self.status == 'on'
+    self.status == 'active'
   end
 
   def off?
