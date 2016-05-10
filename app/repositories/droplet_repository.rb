@@ -7,8 +7,10 @@ class DropletRepository
     Droplet.update(droplet_id, status: status)
   end
 
-  def find_or_create_droplet(data:)
-    Droplet.create_with(
+  def create_or_update_droplet(data:)
+    Droplet.first_or_initialize(
+      external_id: data.id
+    ).update(
       name: data.name,
       region_slug: data.region.slug,
       memory: data.memory,
@@ -16,6 +18,6 @@ class DropletRepository
       vcpus: data.vcpus,
       status: data.status,
       image_name: data.image.name
-    ).find_or_create_by(external_id: data.id)
+    )
   end
 end
