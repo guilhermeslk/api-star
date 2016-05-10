@@ -1,4 +1,8 @@
 class DropletRepository
+  def find_all
+    Droplet.all.order(:name)
+  end
+
   def find_or_create_droplet(data:)
     Droplet.create_with(
       name: data.name,

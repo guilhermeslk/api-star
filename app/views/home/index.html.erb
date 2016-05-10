@@ -1,1 +1,35 @@
-<h1>Api Star</h1>
+<div class="container">
+  <h1 class="mid-margin-bottom">Agendador Digital Ocean</h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th>ID Externo</th>
+            <th>Instância</th>
+            <th>Região</th>
+            <th>RAM (MB)</th>
+            <th>Disco (GB)</th>
+            <th>CPUs</th>
+            <th>Imagem</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @droplets.each do |droplet| %>
+          <tr>
+            <td><%= droplet.external_id %></td>
+            <td><%= droplet.name %></td>
+            <td><%= droplet.region_slug %></td>
+            <td><%= droplet.memory %></td>
+            <td><%= droplet.disk %></td>
+            <td><%= droplet.vcpus %></td>
+            <td><%= droplet.image_name %></td>
+            <td class="<%= droplet.status %>"><%= droplet.status %></td>
+          </tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
+  </div>
+</div>
