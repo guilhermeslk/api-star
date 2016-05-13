@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root "dashboard#index"
-  resources :droplets, only: ['update']
+  get "/actions/check", to: 'actions#check_pending'
+
+  resources :droplets, only: ['update', 'index']
 end
