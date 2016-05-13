@@ -1,0 +1,37 @@
+<table class="table table-responsive table-bordered">
+  <thead>
+    <tr>
+      <th>ID Externo</th>
+      <th>Instância</th>
+      <th>Região</th>
+      <th>RAM (MB)</th>
+      <th>Disco (GB)</th>
+      <th>CPUs</th>
+      <th>Imagem</th>
+      <th>Estado</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @droplets.each do |droplet| %>
+    <tr id="droplet_<%= droplet.external_id %>">
+      <td><%= droplet.external_id %></td>
+      <td><%= droplet.name %></td>
+      <td><%= droplet.region_slug %></td>
+      <td><%= droplet.memory %></td>
+      <td><%= droplet.disk %></td>
+      <td><%= droplet.vcpus %></td>
+      <td><%= droplet.image_name %></td>
+      <td class="status_<%= droplet.status %>"><%= droplet.status %></td>
+      <td class="droplet_actions">
+        <input class="update_url" type="hidden" value="<%= droplet_url(droplet) %>">
+        <% if droplet.on? %>
+          <button class="button_off btn btn-default">Desligar</button>
+        <% else %>
+          <button class="button_on btn btn-default">Ligar</button>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  <tbody>
+</table>
