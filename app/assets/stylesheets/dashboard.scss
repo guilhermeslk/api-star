@@ -2,14 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-color: #FAFAF5;
+  background-color: #191919;
 }
 
-.active {
+.status_active {
   color: green;
 }
 
-.off {
+.status_off {
   color: red;
 }
 
